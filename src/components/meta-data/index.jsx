@@ -124,6 +124,7 @@ const MetaData = ({
 	facebookAdmins,
 	fallbackImage,
 	globalContent: gc,
+	includeTitle,
 	MetaTag,
 	MetaTags,
 	metaValue,
@@ -461,7 +462,9 @@ const MetaData = ({
 
 	return (
 		<>
-			<title>{metaData.title}</title>
+			{includeTitle && (
+			  <title>{metaData.title}</title>
+			)}
 			{pageMetaDataTags}
 			{customMetaTags}
 			{commonTagsOnPage && twitterTags}
@@ -495,6 +498,7 @@ MetaData.propTypes = {
 		}),
 		canonical_url: PropTypes.string,
 	}),
+	includeTitle: PropTypes.bool,
 	MetaTag: PropTypes.func,
 	MetaTags: PropTypes.func,
 	metaValue: PropTypes.func,
